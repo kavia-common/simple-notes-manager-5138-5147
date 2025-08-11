@@ -1,4 +1,19 @@
-/* Global styles for minimalistic design */
+/* Global styles and theme variables (light, minimalistic) */
+:root {
+  --color-primary: #1976d2;
+  --color-secondary: #424242;
+  --color-accent: #ffca28;
+
+  --color-background: #f7f9fc;
+  --color-surface: #ffffff;
+  --color-surface-2: #f5f7fb;
+
+  --text-color: #1f2937;
+  --muted-color: #6b7280;
+
+  --border-color: #e5e7eb;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +22,31 @@
 
 html, body {
   height: 100%;
-  background-color: #ffffff;
+  background: var(--color-background);
+  color: var(--text-color);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d3d8e0;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c2c8d1;
 }

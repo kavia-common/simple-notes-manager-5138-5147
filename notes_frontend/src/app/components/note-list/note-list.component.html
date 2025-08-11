@@ -1,0 +1,29 @@
+<div class="list">
+  <div
+    class="card"
+    *ngFor="let n of notes"
+    [class.active]="n.id === selectedId"
+    (click)="onSelect(n.id)"
+    tabindex="0"
+    role="button"
+  >
+    <div class="card-header">
+      <div class="title">
+        <span *ngIf="n.pinned" class="pin">📌</span>
+        {{ n.title || 'Untitled' }}
+      </div>
+      <button class="icon-btn" title="Delete note" (click)="onDelete(n.id, $event)">🗑️</button>
+    </div>
+    <div class="content">{{ preview(n.content || '') }}</div>
+    <div class="meta">
+      <div class="tags">
+        <span class="tag" *ngFor="let t of n.tags">#{{ t }}</span>
+      </div>
+      <div class="date">{{ fmtDate(n.updatedAt) }}</div>
+    </div>
+  </div>
+
+  <div class="empty" *ngIf="!notes || notes.length === 0">
+    No notes found
+  </div>
+</div>

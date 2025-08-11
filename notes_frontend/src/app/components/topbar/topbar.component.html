@@ -1,0 +1,22 @@
+<header class="topbar">
+  <div class="brand">
+    <div class="dot"></div>
+    <span>Simple Notes</span>
+  </div>
+
+  <div class="search-wrap">
+    <input
+      type="text"
+      [(ngModel)]="query"
+      (input)="onSearchInput()"
+      placeholder="Search notes..."
+      aria-label="Search notes"
+    />
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-accent" (click)="onCreate()" aria-label="Create new note">
+      + New
+    </button>
+  </div>
+</header>

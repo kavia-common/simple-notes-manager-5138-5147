@@ -1,0 +1,38 @@
+<div class="editor">
+  <div class="toolbar">
+    <label class="pin">
+      <input type="checkbox" [(ngModel)]="pinned" />
+      <span>Pin</span>
+    </label>
+
+    <button class="btn btn-primary" (click)="onSave()">Save</button>
+    <button class="btn" *ngIf="note?.id" (click)="onDelete()">Delete</button>
+  </div>
+
+  <input
+    id="editor-title"
+    class="title"
+    type="text"
+    [(ngModel)]="title"
+    placeholder="Title"
+    aria-label="Note title"
+  />
+
+  <textarea
+    class="content"
+    [(ngModel)]="content"
+    placeholder="Write your note..."
+    rows="12"
+    aria-label="Note content"
+  ></textarea>
+
+  <div class="tags">
+    <label>Tags</label>
+    <input
+      type="text"
+      [(ngModel)]="tagsInput"
+      placeholder="Comma-separated, e.g., work, ideas"
+      aria-label="Note tags"
+    />
+  </div>
+</div>

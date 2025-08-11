@@ -1,0 +1,32 @@
+<aside class="sidebar">
+  <div class="section">
+    <div
+      class="item"
+      [class.active]="selectedTag === null"
+      (click)="selectTag(null)"
+      role="button"
+      tabindex="0"
+    >
+      <span>All notes</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Tags</div>
+    <div class="tag-list" *ngIf="tags?.length; else emptyTags">
+      <div
+        class="tag"
+        *ngFor="let t of tags"
+        [class.active]="selectedTag === t"
+        (click)="selectTag(t)"
+        role="button"
+        tabindex="0"
+      >
+        #{{ t }}
+      </div>
+    </div>
+    <ng-template #emptyTags>
+      <div class="empty">No tags yet</div>
+    </ng-template>
+  </div>
+</aside>

@@ -1,0 +1,30 @@
+<app-topbar (search)="onSearch($event)" (create)="onCreateNote()"></app-topbar>
+
+<div class="layout">
+  <app-sidebar
+    class="sidebar"
+    [tags]="(tags$ | async) || []"
+    [selectedTag]="(selectedTag$ | async) ?? null"
+    (tagChange)="onTagChange($event)"
+  ></app-sidebar>
+
+  <div class="content">
+    <div class="columns">
+      <div class="left">
+        <app-note-list
+          [notes]="(filtered$ | async) || []"
+          [selectedId]="selectedId"
+          (select)="onSelectNote($event)"
+          (delete)="onDeleteNote($event)"
+        ></app-note-list>
+      </div>
+      <div class="right" id="editor">
+        <app-note-editor
+          [note]="selectedNote"
+          (save)="onSaveDraft($event)"
+          (delete)="onDeleteNote($event)"
+        ></app-note-editor>
+      </div>
+    </div>
+  </div>
+</div>

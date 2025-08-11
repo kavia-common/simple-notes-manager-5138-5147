@@ -1,0 +1,97 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  align-content: start;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--color-surface);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  min-height: 100px;
+}
+
+.card:hover {
+  background: var(--color-surface-2);
+  border-color: color-mix(in srgb, var(--color-primary) 20%, var(--border-color));
+}
+
+.card.active {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-weight: 600;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pin {
+  font-size: 14px;
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.icon-btn:hover {
+  opacity: 1;
+}
+
+.content {
+  color: var(--muted-color);
+  font-size: 14px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 12px;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, white);
+  padding: 2px 8px;
+  border-radius: 100px;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 40%, white);
+}
+
+.date {
+  font-size: 12px;
+  color: var(--muted-color);
+}
+
+.empty {
+  grid-column: 1 / -1;
+  color: var(--muted-color);
+  text-align: center;
+  padding: 24px 0;
+}
